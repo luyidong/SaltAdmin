@@ -15,7 +15,9 @@ UR                          结果类型          说明
 ```
 
 ######启动脚本
+```Bash
 python app.py -log_file_prefix=./test.log 
+```
 
 #####Ex.
 ######新建节点
