@@ -317,7 +317,7 @@ class api(object):
                            #已存在节点，新增节点1
                            if nodelist_count == 0 and node_count == 1 :
                                item = '  '+item.strip()+rest.strip(',')+'\n'
-                           #不存在节点，新增节点1
+                           #不存在节点，新增节点1 避免空字符串
                            elif nodelist_count == 0 and node_count == 0 :
                                item = '  '+item.strip()+rest.strip(',')+'\n'
                            #不存在节点，新增节点1

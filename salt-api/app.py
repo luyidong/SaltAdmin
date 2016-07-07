@@ -36,13 +36,13 @@ class testPingHandler(tornado.web.RequestHandler):
         if res.testPing():
             result['result'] = True
             result['messages'] = 'test.ping ok'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/testping?node=testprom01.beta1.fn'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/testping?node=testprom01.beta1.fn'
             print result
             self.write(json.dumps(result))
         else:
             result['result'] = False
             result['messages'] = 'test.ping fail'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/testping?node=testprom01.beta1.fn'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/testping?node=testprom01.beta1.fn'
             print result
             self.write(json.dumps(result))
 
@@ -64,7 +64,7 @@ class AddNodeStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State PHP OK '
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=php'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=php'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'java':
@@ -75,7 +75,7 @@ class AddNodeStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State Java OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/addnodestate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=java'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/addnodestate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=java'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'logstash':
@@ -86,7 +86,7 @@ class AddNodeStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State logstash OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=logstash'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=logstash'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'zabbix':
@@ -97,7 +97,7 @@ class AddNodeStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State Zabbix OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=zabbix'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=zabbix'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'rundeck':
@@ -107,13 +107,13 @@ class AddNodeStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State Rundeck OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=rundeck'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=rundeck'
                     print result
                     self.write(json.dumps(result))
                 else:
                     result['result'] = False
                     result['messages'] = 'State Error'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=None'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=None'
                     print result
                     self.write(json.dumps(result))
         else:
@@ -140,7 +140,7 @@ class runStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State PHP OK '
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=php'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=php'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'java':
@@ -151,7 +151,7 @@ class runStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State Java OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=java'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=java'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'logstash':
@@ -162,7 +162,7 @@ class runStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State logstash OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=logstash'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=logstash'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'zabbix':
@@ -173,7 +173,7 @@ class runStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State Zabbix OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=zabbix'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=zabbix'
                     print result
                     self.write(json.dumps(result))
                 elif soft == 'rundeck':
@@ -183,13 +183,13 @@ class runStateHandler(tornado.web.RequestHandler):
                     result['jid'] = jid
                     result['result'] = True
                     result['messages'] = 'State Rundeck OK'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=rundeck'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=rundeck'
                     print result
                     self.write(json.dumps(result))
                 else:
                     result['result'] = False
                     result['messages'] = 'State Error'
-                    result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=None'
+                    result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createstate?program=testprom&env=beta&node=testprom01.beta1.fn&soft=None'
                     print result
                     self.write(json.dumps(result))
         else:
@@ -211,7 +211,7 @@ class checkPHPHandler(tornado.web.RequestHandler):
             result['id'] = node
             result['result'] = True
             result['messages'] = 'Success, PHP init'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checkphp?program=testprom&env=beta&node=testprom01.beta1.fn&soft=php'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checkphp?program=testprom&env=beta&node=testprom01.beta1.fn&soft=php'
             print result
             self.write(json.dumps(result))
         else:
@@ -233,7 +233,7 @@ class checkLogstashHandler(tornado.web.RequestHandler):
             result['id'] = node
             result['result'] = True
             result['messages'] = 'Success, Logstash init'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checklogstash?program=testprom&env=beta&node=testprom01.beta1.fn&soft=logstash'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checklogstash?program=testprom&env=beta&node=testprom01.beta1.fn&soft=logstash'
             print result
             self.write(json.dumps(result))
         else:
@@ -256,7 +256,7 @@ class checkZabbixHandler(tornado.web.RequestHandler):
             result['id'] = node
             result['result'] = True
             result['messages'] = 'Success, Zabbix init'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checkzabbix?program=testprom&env=beta&node=testprom01.beta1.fn&soft=zabbix'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checkzabbix?program=testprom&env=beta&node=testprom01.beta1.fn&soft=zabbix'
             print result
             self.write(json.dumps(result))
         else:
@@ -276,7 +276,7 @@ class createRundeckHandler(tornado.web.RequestHandler):
         if res.createRundeck():
             result['result'] = True
             result['messages'] = 'Success, Rundeck init'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createrundeck?program=testprom&env=beta&node=testprom01.beta1.fn&soft=rundeck'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createrundeck?program=testprom&env=beta&node=testprom01.beta1.fn&soft=rundeck'
             print result
             self.write(json.dumps(result))
         else:
@@ -303,14 +303,14 @@ class checkPillarHandler(tornado.web.RequestHandler):
                 result['id'] = item
                 result['result'] = True
                 result['messages'] = 'Success,Refresh Pillar OK'
-                result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checkpillar?program=testprom&env=beta&node=testprom01.beta1.fn'
+                result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checkpillar?program=testprom&env=beta&node=testprom01.beta1.fn'
                 print result
                 self.write(json.dumps(result))
             else:
                 result['id'] = item
                 result['result'] = False
                 result['messages'] = 'Error,Refresh Pillar Fail'
-                result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checkpillar?program=testprom&env=beta&node=testprom01.beta1.fn'
+                result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checkpillar?program=testprom&env=beta&node=testprom01.beta1.fn'
                 print result
                 self.write(json.dumps(result))
 
@@ -331,14 +331,14 @@ class checkNodeHandler(tornado.web.RequestHandler):
                 result['id'] = item
                 result['result'] = True
                 result['messages'] = 'Success,node is ok'
-                result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checknode?program=testprom&env=beta&node=testprom01.beta1.fn'
+                result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checknode?program=testprom&env=beta&node=testprom01.beta1.fn'
                 print result
                 self.write(json.dumps(result))
             else:
                 result['id'] = item
                 result['result'] = False
                 result['messages'] = 'Error,node is not exit,please check node'
-                result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checknode?program=testprom&env=beta&node=testprom01.beta1.fn'
+                result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checknode?program=testprom&env=beta&node=testprom01.beta1.fn'
                 print result
                 self.write(json.dumps(result))
 
@@ -353,7 +353,7 @@ class createNodeHandler(tornado.web.RequestHandler):
         if not res.createNode():
             result['result'] = True
             result['messages'] = 'Success,create node '
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createnode?program=testprom&env=beta&node=testprom01.beta1.fn'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createnode?program=testprom&env=beta&node=testprom01.beta1.fn'
             print result
             self.write(json.dumps(result))
         elif res.checkAlive() is None:
@@ -361,13 +361,13 @@ class createNodeHandler(tornado.web.RequestHandler):
             apiUtils.createNode(group,node)
             result['result'] = True
             result['messages'] = 'Success,create node 1'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createnode?program=testprom&env=beta&node=testprom01.beta1.fn'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createnode?program=testprom&env=beta&node=testprom01.beta1.fn'
             print result
             self.write(json.dumps(result))
         else:
             result['result'] = False
             result['messages'] = 'Info, node is exit'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/createnode?program=testprom&env=beta&node=testprom01.beta1.fn'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/createnode?program=testprom&env=beta&node=testprom01.beta1.fn'
             print result
             self.write(json.dumps(result))
 
@@ -382,13 +382,13 @@ class checkGroupHandler(tornado.web.RequestHandler):
         if res.checkGroup():
             result['result'] = True
             result['messages'] = 'Success,create group is ok'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checkgroup?program=testprom&env=beta'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checkgroup?program=testprom&env=beta'
             print result
             self.write(json.dumps(result))
         else :
             result['result'] = False
             result['messages'] = 'Error,Please check group'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/checkgroup?program=testprom&env=beta'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/checkgroup?program=testprom&env=beta'
             print result
             self.write(json.dumps(result))
 
@@ -407,7 +407,7 @@ class createGroupHandler(tornado.web.RequestHandler):
             res.createPhpFile()
             result['result'] = True
             result['messages'] = 'Success,create PHP group is ok'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/creategroup?program=testprom&env=beta&soft=php'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/creategroup?program=testprom&env=beta&soft=php'
             print result
             self.write(json.dumps(result))
         elif not res.checkGroup() and soft == 'java':
@@ -416,13 +416,13 @@ class createGroupHandler(tornado.web.RequestHandler):
             res.createJavaFile()
             result['result'] = True
             result['messages'] = 'Success,create Java group is ok'
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/creategroup?program=testprom&env=beta&soft=java'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/creategroup?program=testprom&env=beta&soft=java'
             print result
             self.write(json.dumps(result))
         else :
             result['result'] = False
             result['messages'] = "Info,Group already exists"
-            result['documentation_url'] = 'http://10.202.184.248:9000/salt/v1/creategroup?program=testprom&env=beta&soft=[php|java|None]'
+            result['documentation_url'] = 'http://10.10.10.10:9000/salt/v1/creategroup?program=testprom&env=beta&soft=[php|java|None]'
             print result
             self.write(json.dumps(result))
         

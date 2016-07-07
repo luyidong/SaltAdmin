@@ -8,13 +8,13 @@
 /salt/v1/addnodetate        True/False        单节点推送配置环境php，tomcat，zabbix等  <br>  
 /salt/v1/checkgroup         True/False        验证项目组是否存在                       <br>   
 /salt/v1/checknode          True/False        验证节点是否存在
-/salt/v1/checkpillar        True/False        验证Pillar 节点角色
-/salt/v1/checkphp           True/False        验证推送PHP是否成功
-/salt/v1/checklogstash      True/False        验证推送Logstaths是否成功
-/salt/v1/checkzabbix        True/False        验证推送Zabbix是否成功
+        /salt/v1/checkpillar        True/False        验证Pillar 节点角色
+        /salt/v1/checkphp           True/False        验证推送PHP是否成功
+        /salt/v1/checklogstash      True/False        验证推送Logstaths是否成功
+        /salt/v1/checkzabbix        True/False        验证推送Zabbix是否成功
 
 
-启动脚本
+#####启动脚本
 python app.py -log_file_prefix=./test.log 
 
 Ex.
