@@ -16,6 +16,6 @@ List
 Add
 ![](https://github.com/luyidong/SaltAdmin/blob/master/salt-ui/screen/add-cmdb.png)
 Edit
-![](https://github.com/luyidong/SaltAdmin/blob/master/salt-ui/screen/edit-cmdb.png)
+![](https://github.com/luyidong/SaltAdmin/blob/master/salt-ui/screen/edit-cdmb.png)
 Delete
 ![](https://github.com/luyidong/SaltAdmin/blob/master/salt-ui/screen/del-cmdb.png)
