@@ -19,6 +19,7 @@ UR                          结果类型          说明
 /salt/v1/checkzabbix        True/False        验证推送Zabbix是否成功
 ```
 
+
 ######No.2  Salt Web UI
 ```Bash
 https://github.com/luyidong/SaltAdmin/tree/master/salt-ui
