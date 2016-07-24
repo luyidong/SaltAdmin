@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block header %}
+    <title>首页－自动化运维平台</title>
+{% end %}
+
+{% block body %}
+
+    <div class="row"><h1 class="text-center">登录页面</h1>
+        <p class="text-center">这是运维平台介绍</p>
+    </div>
+
+    <div id="quicknav">
+        <ul>
+            <li><a href="#red" id="index-list" class="btn btn-default">流程工单</a></li>
+            <li><a href="/cmdb" class="btn btn-danger">资产管理</a></li>
+            <li><a href="#green" class="btn btn-success">DNS配置</a></li>
+            <li><a href="#lightblue" class="btn btn-info">监控平台</a></li>
+            <li><a href="#yellow" class="btn btn-warning">发布系统</a></li>
+            <li><a href="#blue" class="btn btn-primary">任务管理</a></li>
+        </ul>
+    </div>
+{% end %}
+
+{% block footer %}
+    <!--<p class="text-center">by louis@2016</p>-->
+{% end %}

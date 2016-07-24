@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ static_url("bootstrap.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery-ui.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("sweetalert.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery.dataTables.css") }}" rel="stylesheet" type="text/css">
+
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<p>
+
+
+<table id="datatable" width="100%" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+
+        </tr>
+    <thead>
+</table>
+
+    <script src='{{ static_url("dist/jquery.js") }}'></script>
+    <script src='{{ static_url("dist/bootstrap.js") }}'></script>
+    <script src='{{ static_url("dist/jquery-ui.js") }}'></script>
+    <script src='{{ static_url("dist/echarts-all.js") }}'></script>
+    <script src='{{ static_url("dist/sweetalert.min.js") }}'></script>
+    <script src='{{ static_url("datatable/js/jquery.dataTables.js") }}'></script>
+
+<script>
+
+     $(document).ready(function() {
+         $('#datatable').DataTable({
+             "ajax": {
+                 url: "/salt/deniedkeys",
+                 type: "GET",// method  , by default get 
+                 dataSrc: 'data'
+             },
+
+         });
+     }) ; 
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

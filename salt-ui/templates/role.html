@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ static_url("bootstrap.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery-ui.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("sweetalert.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery.dataTables.css") }}" rel="stylesheet" type="text/css">
+
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <table id="datatables"  class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th><input type="checkbox"  id="bulkDelete"  /> <button id="deleteTriger">Delete</button></th>
+                <th>name</th>
+                <th>Modify</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src='{{ static_url("dist/jquery.js") }}'></script>
+    <script src='{{ static_url("dist/bootstrap.js") }}'></script>
+    <script src='{{ static_url("dist/jquery-ui.js") }}'></script>
+    <script src='{{ static_url("dist/echarts-all.js") }}'></script>
+    <script src='{{ static_url("dist/sweetalert.min.js") }}'></script>
+    <script src='{{ static_url("datatable/js/jquery.dataTables.js") }}'></script>
+
+    <!--<script src='{{ static_url("dist/condatatable.js") }}'></script>-->
+
+    <script>
+$(document).ready( function () {
+    var table = $('#datatables').DataTable({
+                    "dom": '<"top"f >rt<"bottom"ilp><"clear">',//dom定位
+                    "bServerSide": true,
+                    "bJQueryUI": false,
+                    "bLengthChange": true,
+                    'iDisplayLength': 5,
+                    "bFilter": true,
+                    "bInfo": true,
+                    "sAjaxSource": '/role/list',
+
+                    "bProcessing": false,
+                    "bPaginate": true,
+                    "bSort": true,
+                    "bAutoWidth": false,
+                    "asStripClasses": false,
+                    "oLanguage": {
+                    "oAria": {
+                        "sSortAscending": ": 升序排列",
+                        "sSortDescending": ": 降序排列"
+                    },
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sLast": "末页",
+                        "sNext": "下页",
+                        "sPrevious": "上页"
+                    },
+                    "sEmptyTable": "没有相关记录",
+                    "sInfo": "第 _START_ 到 _END_ 条记录，共 _TOTAL_ 条",
+                    "sInfoEmpty": "第 0 到 0 条记录，共 0 条",
+                    "sInfoFiltered": "(从 _MAX_ 条记录中检索)",
+                    "sInfoPostFix": "",
+                    "sDecimal": "",
+                    "sThousands": ",",
+                    "sLengthMenu": "每页显示条数: _MENU_",
+                    "sLoadingRecords": "正在载入...",
+                    "sProcessing": "正在载入...",
+                    "sSearch": "搜索:",
+                    "sSearchPlaceholder": "",
+                    "sUrl": "",
+                    "sZeroRecords": "没有相关记录"
+                    },
+                "destory": true, //允许重新实例化Datatables
+                "retrieve": true, //检索一个已存在的Datatables实例
+                    "columns": [
+                        {"mdata": "UserId"},
+                        {"mdata": "Name"}, 
+                        {"mdata": "Modify"},  
+                    ], 
+                     "columnDefs":[ 
+                         {"targets": 0,
+                          "orderable": false,//关闭id的排序
+
+                          "searchable": false},
+                          { 
+                            "targets": [0], 
+                            "mdata":"UserId", 
+                            "render":function(data,type){ 
+                                return "<input type='checkbox'  name='checkList' class='deleteRow' value='"+data+"' />"; 
+                            } 
+                        },
+                         { 
+                            "targets": [2], 
+                            //"orderData":[1,2], 
+                            //"mdata":"UserId",  
+                            "render":function(data,type,row){ 
+                                return "<button data-names='"+row[0]+"' id='deletes-btn' type='button' class='btn btn-danger'>delete</button>&nbsp;" +
+                                        "<button data-userid='"+row[0]+"'  data-username='"+row[1]+"' data-fullname='"+row[2]+"' data-password='"+row[3]+"' data-user-role='"+row[4]+"' id='edit-btn' type='button' class='btn btn-success'>edit</button>&nbsp;" +
+                                "<button id='info-btn' type='button' class='btn btn-info'>info</button>";
+                            } 
+                        } 
+
+                    ] 
+
+                });
+
+            //submit update
+            $("#submit-update-btn").on('click', function (data) { 
+                var username = $("#data-username").val()
+                var fullname = $("#data-fullname").val()
+                var password = $("#data-password").val()
+                var userrole = $("#data-user-role").val()
+                var user_role = $("#data-user-roles").val()
+                var userid   = $("#data-userid").val()
+                $.ajax({
+                    type: "post",
+                    url: "/update?action_type=tb_user",
+                    data: {"username":username,"fullname":fullname,"password":password,"userid":userid,"user_role":user_role},
+                    success: function(result) {
+                            $('#update-modal').modal('hide')
+                            table.draw(false); // redrawing datatable
+                    },
+                    async:false
+                });
+
+
+
+            });
+
+
+            //update
+            $("#datatables tbody").on('click','button#edit-btn', function (data) { 
+                var username = $(this).attr('data-username')
+                var fullname = $(this).attr('data-fullname')
+                var password = $(this).attr('data-password')
+                var userrole = $(this).attr('data-user-role')
+                var user_role = $(this).attr('data-user-role')
+                var userid = $(this).attr('data-userid')
+
+
+               // alert(userid)
+                //alert( data[1] +"'s salary is: "+ data[ 2 ] );
+                $("#data-username").val(username)
+                $("#data-fullname").val(fullname)
+                $("#data-password").val(password)
+                $("#data-user-role").val(userrole)
+               // $("#data-user-roles").val(user_role)
+                $("#data-userid").val(userid)
+                //$("#user-role").val(selects)
+                //$('#info').html(str)
+                $.ajax({
+                    type: 'get',
+                    url: "/upRole",
+                    data: {"userid":userid},
+                    success: function(data) {
+                        eval("var data="+data)
+
+
+                        //alert(data['users']['user_role'])
+
+                        //$.each(data.sa_list, function (i,content) {
+                        //    alert(content.Rolename)
+                        //})
+
+
+                        var str=''
+                        str += '<input class="default_group" type="hidden" value=" '+data['users']['user_role']+' " />'
+                        str += '<select name="user-role" id="data-user-roles">'
+
+                            $.each(data.sa_list, function (i, content) {
+                                if (data['users']['user_role'] == content.Id) {
+                                    str += '<option selected="selected" value="' + content.Id + '">' + content.Rolename + '</option>'
+                                } else {
+                                    str += '<option value="' + content.Id + '">' + content.Rolename + '</option>'
+                                }
+                            })
+
+                        str += ' </select>'
+                        $('#select-role').html(str)
+
+                           $("#update-modal").modal("show");//弹出框show
+
+                    },
+                    async:false
+                });
+
+
+            });
+
+
+            //info
+            $("#datatables tbody").on('click','button#info-btn', function () { 
+                //http://datatables.club/example/ajax/null_data_source.html
+                var data = table.row( $(this).parents('tr') ).data();
+                //alert( data[1] +"'s salary is: "+ data[ 2 ] );
+                var str = ''
+                str += '<tr>'
+                str += '<th>Username</th>'
+                str += '<td>' + data[1] + '</td>'
+                str += '</tr>'
+                str += '<tr>'
+                str += '<th>Fullname</th>'
+                str += '<td>' + data[2] + '</td>'
+                str += '</tr>'
+                str += '<tr>'
+                str += '<th>Password</th>'
+                str += '<td>' + data[3] + '</td>'
+                str += '</tr>'
+                str += '<tr>'
+                str += '<th>User Role</th>'
+                str += '<td>' + data[4] + '</td>'
+                str += '</tr>'
+                $('#info').html(str)
+                $("#info-modal").modal("show");//弹出框show
+            });
+
+
+
+
+            //delete
+            $("#datatables tbody").on('click','button#deletes-btn', function (data) { 
+                var name=$(this).attr('data-names')
+                swal({   title: "请确认",
+                    text: "删除后，将无法恢复!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确认, 删除!",
+                    closeOnConfirm: false },
+                    function(){
+                        $.get('/d?data_ids='+name,function(res){
+                            if(res== 1 ){
+                            table.draw(false); // redrawing datatable 
+                            swal("删除!", "文件已被删除.", "success");
+
+                        }
+                });
+            }); 
+            });
+
+
+               //checkbox全选
+            $("#bulkDelete").on('click',function() { // bulk checked
+                var status = this.checked;
+                $(".deleteRow").each( function() {
+                    $(this).prop("checked",status);
+                });
+            });
+                //delete checkall
+            $('#deleteTriger').on("click", function(event){ // triggering delete one by one
+                    if( $('.deleteRow:checked').length > 0 ){  // at-least one checkbox checked
+                        var ids = [];
+                        $('.deleteRow').each(function(){
+                            if($(this).is(':checked')) {
+                                ids.push($(this).val());
+                            }
+                        });
+                        var ids_string = ids.toString();  // array to string conversion
+
+                        $.ajax({
+                            type: "post",
+                            url: "/d",
+                            data: {"data_ids":ids_string},
+                            success: function(result) {
+                                    table.draw(false); // redrawing datatable
+                            },
+                            async:false
+                        });
+                    }
+            });
+
+} );
+
+    </script>
+
+
+
+</body>
+</html>

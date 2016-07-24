@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+	{% if errormessage %}
+	    <div class="alert alert-error">{{errormessage}}</div>
+	    <div class="clearfix"></div>
+	{% end %}
+<form action="/auth/create" method="POST">
+    {% raw xsrf_form_html() %}
+  Email: <input name="email" type="text"><br>
+  Userame: <input name="username" type="text"><br>
+  Password: <input name="password" type="password"><br>
+  Nickname: <input name="nickname" type="text"><br>
+  <input type="submit">
+</form>
+
+</body>
+</html>

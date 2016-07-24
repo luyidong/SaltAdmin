@@ -1,4 +1,4 @@
-####Saltstack Config Api with tornado
+####Saltstack Config Api with Tornado
 ```C
 --------------------------------------------------------------------------------------
 UR                          结果类型          说明                                     

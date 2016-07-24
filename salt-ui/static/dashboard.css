@@ -1,0 +1,207 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/*
+* 自定义
+*/
+
+
+.panel-footer {
+  color: #A94442;
+}
+#panel-footer a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
+
+
+/*
+*
+*  index.html
+*
+*/
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
+.row {
+    margin: 30px 0;
+}
+#quicknav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+#quicknav h2 {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+#quicknav ul li {
+    display: inline;
+}
+
+#quicknav ul li a {
+    text-decoration: none;
+    padding: .2em 1em;
+}
+
+#index-list {
+    color: #fff;
+    background-color: #9D9D9D;
+    border-color: #9D9D9D;
+}
+
+#index-list:hover {
+     color: #fff;
+     background-color: #6B6B6B;
+     border-color: #6B6B6B;
+}
+.main {
+    padding: 0px;
+}
+
+/*
+*隐藏默认的datatables serach
+*/
+.dataTables_filter {
+display: none;
+}
+.bottom{
+    margin:0 auto;/*下边居是0 */
+    width:auto;
+}
+#datatables_info{
+    float:left;
+}
+#datatables_length{
+    float:right;
+    text-align: right;
+    padding-top: 0.85em;
+    margin-right:10px;
+}
+#datatables_paginate{
+    float:right;
+    margin-right:10px;
+}
+
+
+#datath {
+    background : none;
+}
+.table.dataTable tbody td {
+     /*float:center;*/
+   /*padding: 10px 0px 4px 18px;*/
+    padding-bottom: 4px;
+    padding-top: 10px;
+    padding-left: 18px;
+
+}

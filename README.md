@@ -1,10 +1,10 @@
-####Saltstack with  tornado
+####Saltstack with Tornado
 
-######No.1  Salt Config api
+######No.1  Salt Config Api
 ```Bash
 https://github.com/luyidong/SaltAdmin/tree/master/salt-api
 ```
-######No.2  Distributed Task Queue (Salt Celery tornado) 
+######No.2  Salt Web UI
 ```Bash
-url
+https://github.com/luyidong/SaltAdmin/tree/master/salt-ui
 ```

@@ -1,0 +1,461 @@
+<!-- BEGIN Extends -->
+{% extends "main.html"%}
+<!-- END Extends -->
+<!-- BEGIN HEADER -->
+{% block header %}
+<title>Fable Devops | Dashboard</title>
+<div class="page-header -i navbar navbar-fixed-top">
+	<!-- BEGIN HEADER INNER -->
+	<div class="page-header-inner">
+		<!-- BEGIN LOGO -->
+		<div class="page-logo">
+			<a href="/">
+			<img src="{{ static_url("assets/admin/layout/img/logo.png") }}" alt="logo" class="logo-default"/>
+			</a>
+			<div class="menu-toggler sidebar-toggler hide">
+			</div>
+		</div>
+		<!-- END LOGO -->
+		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+		</a>
+		<!-- END RESPONSIVE MENU TOGGLER -->
+		<!-- BEGIN TOP NAVIGATION MENU -->
+		<div class="top-menu">
+			<ul class="nav navbar-nav pull-right">
+				<li class="dropdown dropdown-user">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<img alt="" class="img-circle" src="{{ static_url("assets/admin/layout/img/avatar3_small.jpg") }}"/>
+					<span class="username username-hide-on-mobile">
+					Nick </span>
+					<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-default">
+						<li>
+							<a href="extra_profile.html">
+							<i class="icon-user"></i> My Profile </a>
+						</li>
+						<li>
+							<a href="inbox.html">
+							<i class="icon-envelope-open"></i> My Inbox <span class="badge badge-danger">
+							3 </span>
+							</a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href="extra_lock.html">
+							<i class="icon-lock"></i> Lock Screen </a>
+						</li>
+						<li>
+							<a href="login.html">
+							<i class="icon-key"></i> Log Out </a>
+						</li>
+					</ul>
+				</li>
+				<!-- END USER LOGIN DROPDOWN -->
+				<!-- BEGIN QUICK SIDEBAR TOGGLER -->
+				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+				<li class="dropdown dropdown-quick-sidebar-toggler">
+					<a href="/auth/logout" class="dropdown-toggle">
+					<!-- <i class="icon-user"></i> -->
+						Logout
+					</a>
+				</li>
+				<!-- END QUICK SIDEBAR TOGGLER -->
+			</ul>
+		</div>
+		<!-- END TOP NAVIGATION MENU -->
+	</div>
+	<!-- END HEADER INNER -->
+</div>
+{% end %}
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+{% block body %}
+<div class="page-container">
+	<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper">
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->
+			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+			<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+			<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+			<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+			<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+				<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+				<li class="sidebar-toggler-wrapper">
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler">
+					</div>
+					<!-- END SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+				<li class="sidebar-search-wrapper">
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+					<!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+					<form class="sidebar-search " action="extra_search.html" method="POST">
+						<a href="javascript:;" class="remove">
+						<i class="icon-close"></i>
+						</a>
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+							</span>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+				<li class="start active open">
+					<a href="javascript:;">
+					<i class="icon-home"></i>
+					<span class="title">Dashboard</span>
+					<span class="selected"></span>
+					<span class="arrow open"></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="active">
+							<a href="#">
+							<i class="icon-bar-chart"></i>
+							Default Dashboard</a>
+						</li>
+						<li>
+							<a href="index_2.html">
+							<i class="icon-bulb"></i>
+							New Dashboard #1</a>
+						</li>
+						<li>
+							<a href="index_3.html">
+							<i class="icon-graph"></i>
+							New Dashboard #2</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="icon-rocket"></i>
+					<span class="title">Page Layouts</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="layout_horizontal_sidebar_menu.html">
+							Horizontal & Sidebar Menu</a>
+						</li>
+						<li>
+							<a href="layout_fontawesome_icons.html">
+							<span class="badge badge-roundless badge-danger">new</span>Layout with Fontawesome Icons</a>
+						</li>
+						<li>
+							<a href="layout_full_height_portlet.html">
+							<span class="badge badge-roundless badge-success">new</span>Full Height Portlet</a>
+						</li>
+						<li>
+							<a href="layout_full_height_content.html">
+							<span class="badge badge-roundless badge-warning">new</span>Full Height Content</a>
+						</li>
+						<li>
+							<a href="layout_language_bar.html">
+							Language Switch Bar</a>
+						</li>
+					</ul>
+				</li>
+				<li class="heading">
+					<h3 class="uppercase">Features</h3>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="icon-folder"></i>
+					<span class="title">Multi Level Menu</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="javascript:;">
+							<i class="icon-settings"></i> Item 1 <span class="arrow"></span>
+							</a>
+							<ul class="sub-menu">
+								<li>
+									<a href="javascript:;">
+									<i class="icon-user"></i>
+									Sample Link 1 <span class="arrow"></span>
+									</a>
+									<ul class="sub-menu">
+										<li>
+											<a href="#"><i class="icon-power"></i> Sample Link 1</a>
+										</li>
+										<li>
+											<a href="#"><i class="icon-paper-plane"></i> Sample Link 1</a>
+										</li>
+										<li>
+											<a href="#"><i class="icon-star"></i> Sample Link 1</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#"><i class="icon-camera"></i> Sample Link 1</a>
+								</li>
+								<li>
+									<a href="#"><i class="icon-link"></i> Sample Link 2</a>
+								</li>
+								<li>
+									<a href="#"><i class="icon-pointer"></i> Sample Link 3</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:;">
+							<i class="icon-globe"></i> Item 2 <span class="arrow"></span>
+							</a>
+							<ul class="sub-menu">
+								<li>
+									<a href="#"><i class="icon-tag"></i> Sample Link 1</a>
+								</li>
+								<li>
+									<a href="#"><i class="icon-pencil"></i> Sample Link 1</a>
+								</li>
+								<li>
+									<a href="#"><i class="icon-graph"></i> Sample Link 1</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">
+							<i class="icon-bar-chart"></i>
+							Item 3 </a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="icon-user"></i>
+					<span class="title">Login Options</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="login.html">
+							Login Form 1</a>
+						</li>
+						<li>
+							<a href="login_2.html">
+							Login Form 2</a>
+						</li>
+						<li>
+							<a href="login_3.html">
+							Login Form 3</a>
+						</li>
+						<li>
+							<a href="login_soft.html">
+							Login Form 4</a>
+						</li>
+						<li>
+							<a href="extra_lock.html">
+							Lock Screen 1</a>
+						</li>
+						<li>
+							<a href="extra_lock2.html">
+							Lock Screen 2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="heading">
+					<h3 class="uppercase">More</h3>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="icon-logout"></i>
+					<span class="title">Quick Sidebar</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="quick_sidebar_push_content.html">
+							Push Content</a>
+						</li>
+						<li>
+							<a href="quick_sidebar_over_content.html">
+							Over Content</a>
+						</li>
+						<li>
+							<a href="quick_sidebar_over_content_transparent.html">
+							Over Content & Transparent</a>
+						</li>
+						<li>
+							<a href="quick_sidebar_on_boxed_layout.html">
+							Boxed Layout</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;">
+					<i class="icon-envelope-open"></i>
+					<span class="title">Email Templates</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="email_template1.html">
+							New Email Template 1</a>
+						</li>
+						<li>
+							<a href="email_template2.html">
+							New Email Template 2</a>
+						</li>
+						<li>
+							<a href="email_template3.html">
+							New Email Template 3</a>
+						</li>
+						<li>
+							<a href="email_template4.html">
+							New Email Template 4</a>
+						</li>
+						<li>
+							<a href="email_newsletter.html">
+							Old Email Template 1</a>
+						</li>
+						<li>
+							<a href="email_system.html">
+							Old Email Template 2</a>
+						</li>
+					</ul>
+				</li>
+
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<!-- /.modal -->
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<!-- BEGIN STYLE CUSTOMIZER -->
+			<!-- END STYLE CUSTOMIZER -->
+			<!-- BEGIN PAGE HEADER-->
+			<div class="page-bar">
+				<ul class="page-breadcrumb">
+					<li>
+						<i class="fa fa-home"></i>
+						<a href="/">Home</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li>
+						<a href="#">Dashboard</a>
+					</li>
+				</ul>
+				<div class="page-toolbar">
+
+				</div>
+			</div>
+			<h3 class="page-title">
+			Dashboard <small>reports & statistics</small>
+			</h3>
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN DASHBOARD STATS -->
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue-madison">
+						<div class="visual">
+							<i class="fa fa-comments"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								 1349
+							</div>
+							<div class="desc">
+								 New Feedbacks
+							</div>
+						</div>
+						<a class="more" href="javascript:;">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat red-intense">
+						<div class="visual">
+							<i class="fa fa-bar-chart-o"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								 12,5M$
+							</div>
+							<div class="desc">
+								 Total Profit
+							</div>
+						</div>
+						<a class="more" href="javascript:;">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat green-haze">
+						<div class="visual">
+							<i class="fa fa-shopping-cart"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								 549
+							</div>
+							<div class="desc">
+								 New Orders
+							</div>
+						</div>
+						<a class="more" href="javascript:;">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat purple-plum">
+						<div class="visual">
+							<i class="fa fa-globe"></i>
+						</div>
+						<div class="details">
+							<div class="number">
+								 +89%
+							</div>
+							<div class="desc">
+								 Brand Popularity
+							</div>
+						</div>
+						<a class="more" href="javascript:;">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- END DASHBOARD STATS -->
+
+			<div class="clearfix">
+			</div>
+
+
+		</div>
+	</div>
+	<!-- END CONTENT -->
+</div>
+{% end %}
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+{% block footer %}
+<div class="page-footer">
+	<div class="page-footer-inner">
+		 2016 &copy; Fable Devops by louis.
+	</div>
+	<div class="scroll-to-top">
+		<i class="icon-arrow-up"></i>
+	</div>
+</div>
+{% end %}
+<!-- END FOOTER -->

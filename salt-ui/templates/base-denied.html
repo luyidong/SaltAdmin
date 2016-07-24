@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ static_url("bootstrap.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery-ui.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("sweetalert.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery.dataTables.css") }}" rel="stylesheet" type="text/css">
+
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+DeniedKeys:
+<table class="table table-striped" width="100%">
+
+    {%for sers in minions_den %}
+    <tr>
+        <td class="text-right">
+            <label>
+                <input id = "minions-denied" name="{{ sers }}" type="checkbox" value="{{ sers }}">
+            </label>
+        </td>
+
+        <td class="text-left" width="30%">
+            {{ sers }}
+        </td>
+
+        <td class="text-left">
+            <button id="add-btn" class="btn btn-success">同意</button>
+            <button name="{{ sers }}"  value="{{ sers }}" class="delete-btn btn btn-danger">删除</button>
+        </td>
+    </tr>
+    {% end %}
+
+</table>
+
+
+
+    <script src='{{ static_url("dist/jquery.js") }}'></script>
+    <script src='{{ static_url("dist/bootstrap.js") }}'></script>
+    <script src='{{ static_url("dist/jquery-ui.js") }}'></script>
+    <script src='{{ static_url("dist/echarts-all.js") }}'></script>
+    <script src='{{ static_url("dist/sweetalert.min.js") }}'></script>
+    <script src='{{ static_url("datatable/js/jquery.dataTables.js") }}'></script>
+
+<script>
+
+     $(document).ready(function() {
+         $('#datatable').DataTable({
+             "ajax": {
+                 url: "/salt/deniedkeys",
+                 type: "GET",// method  , by default get 
+             },
+         });
+     }) ; 
+
+    $('#add-btn').on('click',function(){
+        var name = $('#InputName').val()
+        var age = $('#InputAge').slider("value")
+        GlobalName=name
+        if (name&&age){
+            $.get('/add?name='+name+'&age='+age,function(res){
+                if(res =='ok'){
+                    $('#InputName').val('')
+                    $('#InputAge').val('')
+                    getList()
+                }
+            })
+        }else{
+            alert('Error')
+        }
+    })
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

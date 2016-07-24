@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+{% if error %}
+<span style="color: red">Error: {{ error }}</span><p>
+{% end %}
+
+<form action="/auth/login" method="POST">
+  Userame: <input name="username" type="text"><br>
+  Password: <input name="password" type="password"><br>
+  {% module xsrf_form_html() %}
+  <input type="submit">
+</form>
+
+</body>
+</html>

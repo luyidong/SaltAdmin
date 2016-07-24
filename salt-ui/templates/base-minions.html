@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<p>
+
+                            minions:</p>
+                            {%for sers in minions %}
+                             <td class="text-center">
+                                            <label>
+                                                <input name="minion_id" type="checkbox" value="{{ id }}">
+                                            </label>
+                                        </td>
+                                <td class="text-center"> {{ sers }}</td>
+                            {% end %}
+
+</body>
+</html>

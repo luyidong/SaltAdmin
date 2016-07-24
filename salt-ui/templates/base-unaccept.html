@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ static_url("bootstrap.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery-ui.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("sweetalert.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ static_url("jquery.dataTables.css") }}" rel="stylesheet" type="text/css">
+
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+Unacceptkeys:
+<table class="table table-striped" width="100%">
+
+    {%for sers in minions_pre %}
+    <tr>
+        <td class="text-right">
+            <label>
+                <input id = "minions_pre"  type="checkbox" value="{{ sers }}">
+            </label>
+        </td>
+
+        <td class="text-left" width="30%">
+            {{ sers }}
+        </td>
+
+        <td class="text-left">
+            <button type="button" id="add-btn" class="btn btn-success">同意</button>
+            <button name="{{ sers }}"  value="{{ sers }}" class="delete-btn btn btn-danger">删除</button>
+        </td>
+    </tr>
+    {% end %}
+
+</table>
+
+
+
+    <script src='{{ static_url("dist/jquery.js") }}'></script>
+    <script src='{{ static_url("dist/bootstrap.js") }}'></script>
+    <script src='{{ static_url("dist/jquery-ui.js") }}'></script>
+    <script src='{{ static_url("dist/echarts-all.js") }}'></script>
+    <script src='{{ static_url("dist/sweetalert.min.js") }}'></script>
+    <script src='{{ static_url("datatable/js/jquery.dataTables.js") }}'></script>
+
+<script>
+
+
+
+
+    $("#add-btn").click(function(){
+        alert("HTML: " + $('#minions_pre').val());
+    });
+
+//    $('#add-btn').on('click',function(){
+//        var name = $('#minions_pre').val()
+//        alert("Value: " + $('#minions_pre').val());
+//        $.get('/salt/acceptMinionKeys?minion_id='+name,function(res){
+//                if(res =='True'){
+//
+//                  alert('ok')
+//                }
+//                else{
+//                    alert('Error')
+//                }
+//        })
+//    })
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
+

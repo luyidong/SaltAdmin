@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<p>
+                            Accept  Keys:</p>
+                            {% for serv in minions %}
+                                    <tr id="{{ id }}">
+                                        <td class="text-center">
+                                            <label>
+                                                <input name="minion_id" type="checkbox" value="{{ id }}">
+                                            </label>
+                                        </td>
+
+                                        <td class="text-center">{{ serv }}</td>
+                                    </tr>
+                            {% end %}
+                            </p>
+                            Unacceptkeys:</p>
+                            {%for sers in minions_pre %}
+                             <td class="text-center">
+                                            <label>
+                                                <input name="minion_id" type="checkbox" value="{{ id }}">
+                                            </label>
+                                        </td>
+                                <td class="text-center"> {{ sers }}</td>
+                            {% end %}
+                            Rejected keys:</p>
+                            {%for sers in minions_rej %}
+                             <td class="text-center">
+                                            <label>
+                                                <input name="minion_id" type="checkbox" value="{{ id }}">
+                                            </label>
+                                        </td>
+                                <td class="text-center"> {{ sers }}</td>
+                            {% end %}
+
+                           Denied keys:</p>
+                            {%for sers in minions_den %}
+                             <td class="text-center">
+                                            <label>
+                                                <input name="minion_id" type="checkbox" value="{{ id }}">
+                                            </label>
+                                        </td>
+                                <td class="text-center"> {{ sers }}</td>
+                            {% end %}
+
+</body>
+</html>
