@@ -596,8 +596,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="507" y="39" width="1635" height="1027" extended-state="0" />
-    <editor active="true" />
+    <frame x="507" y="39" width="1635" height="1027" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2973262" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
